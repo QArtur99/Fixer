@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TextAppearance.MyCustomDay" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/my_custom_day_color</item>
+        <item name="android:colorActivatedHighlight">@color/my_custom_day_color</item>
+    </style>
+
+    <style name="CalendarTheme" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ActionBarSize" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+</resources>

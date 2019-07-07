@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+    <data>
+        <variable
+            name="detailViewViewModel"
+            type="com.artf.fixer.detailView.DetailViewViewModel"/>
+    </data>
+
+    <com.artf.fixer.utility.CustomScrollView
+        android:id="@+id/scrollview"
+        android:background="@drawable/bg_top_radius"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:id="@+id/test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout android:id="@+id/headerView"
+                          android:layout_width="match_parent"
+                          android:layout_height="?attr/actionBarSize"
+                          android:theme="@style/ActionBarSize"
+                          android:layout_alignParentTop="true"
+                          android:layout_centerHorizontal="true"
+                          android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/headerSymbolTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="@{detailViewViewModel.rateItem.base}"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:textAppearanceMedium"/>
+
+                <TextView
+                    android:id="@+id/headerDateTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{detailViewViewModel.rateItem.date}"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:textAppearanceMedium"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/headerView"
+                android:outlineProvider="bounds"
+                android:elevation="2dp"
+                android:background="?android:attr/listDivider"
+            />
+
+            <LinearLayout android:id="@+id/row"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_below="@+id/divider"
+                          android:foreground="?android:attr/selectableItemBackground"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:layout_margin="16dp"
+                          android:background="@drawable/shape_currency_row"
+                          android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/symbolTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{detailViewViewModel.rateItem.symbol}"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:padding="10dp"
+                    android:textSize="16sp"/>
+
+
+                <TextView
+                    android:id="@+id/rateTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_rate"
+                    android:text="@{detailViewViewModel.rateItem.rate}"
+                    android:gravity="center|center_vertical"
+                    android:lines="1"
+                    android:padding="10dp"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </com.artf.fixer.utility.CustomScrollView>
+</layout>

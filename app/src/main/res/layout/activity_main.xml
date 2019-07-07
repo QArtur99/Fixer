@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"
+                    android:orientation="vertical"
+                    tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/ActionBarSize"
+            app:titleTextColor="@color/white"/>
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:background="@color/colorPrimary"
+            android:theme="@style/CalendarTheme"
+            android:dateTextAppearance="@style/TextAppearance.MyCustomDay"/>
+
+
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/motion_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            app:layoutDescription="@xml/motion_scene">
+
+            <CalendarView
+                android:id="@+id/calendarViewFake"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:theme="@style/CalendarTheme"
+                android:dateTextAppearance="@style/TextAppearance.MyCustomDay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
+            <FrameLayout
+                android:id="@+id/frontLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/ActionBarSize"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <fragment
+                    android:id="@+id/nav_host_fragment"
+                    android:name="androidx.navigation.fragment.NavHostFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:layout="@layout/fragment_list_view"
+                    app:defaultNavHost="true"
+                    app:navGraph="@navigation/navigation"/>
+            </FrameLayout>
+
+        </androidx.constraintlayout.motion.widget.MotionLayout>
+    </RelativeLayout>
+</layout>
