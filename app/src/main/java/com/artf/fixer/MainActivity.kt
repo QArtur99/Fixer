@@ -73,7 +73,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setTransitionOnMotionLayout(outAnim: Int, inAnim: Int) {
         motionLayout.setTransition(outAnim, inAnim)
-        motionLayout.setTransitionDuration(500)
         motionLayout.transitionToEnd()
         isMenuExpended = !isMenuExpended
     }
@@ -82,10 +81,8 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState != null) {
             isMenuExpended = savedInstanceState.getBoolean(Constants.BACKDROP_STATE_ID)
             if (isMenuExpended) {
+                motionLayout.setTransition(R.id.s1, R.id.s2)
                 motionLayout.transitionToStart()
-                motionLayout.setTransition(R.id.s2, R.id.s1)
-                motionLayout.setTransitionDuration(1)
-                motionLayout.transitionToEnd()
             }
         }
     }
