@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
 import com.artf.fixer.DetailActivity
 import com.artf.fixer.R
 import com.artf.fixer.databinding.FragmentListViewBinding
@@ -19,6 +20,7 @@ import com.artf.fixer.repository.NetworkState
 import com.artf.fixer.repository.Status
 import com.artf.fixer.utility.Constants.Companion.INTENT_LIST_ITEM_ID
 import com.artf.fixer.utility.Constants.Companion.RECYCLER_VIEW_STATE_ID
+import com.artf.fixer.utility.Constants.Companion.SCROLL_DIRECTION_UP
 import com.artf.fixer.utility.ServiceLocator
 import com.artf.fixer.utility.convertToString
 
@@ -56,7 +58,6 @@ class ListViewFragment : Fragment() {
         listViewViewModel.listItem.observe(viewLifecycleOwner, Observer {
             it?.let { (_, listItem) ->
                 val intent = Intent(activity, DetailActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 intent.putExtra(INTENT_LIST_ITEM_ID, convertToString(listItem))
                 activity!!.startActivity(intent)
                 listViewViewModel.onRecyclerItemClick(null)
@@ -95,6 +96,18 @@ class ListViewFragment : Fragment() {
         binding.swipeRefresh.setOnRefreshListener {
             listViewViewModel.refresh()
         }
+
+
+        binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if (recyclerView.canScrollVertically(SCROLL_DIRECTION_UP)) {
+                    binding.divider.elevation = 8f
+                } else {
+                    binding.divider.elevation = 0f
+                }
+                super.onScrolled(recyclerView, dx, dy)
+            }
+        })
     }
 
     private fun bindNetworkState(networkState: NetworkState) {

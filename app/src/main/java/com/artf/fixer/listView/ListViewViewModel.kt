@@ -6,7 +6,7 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.artf.fixer.domain.Rate
 import com.artf.fixer.repository.Repository
-import com.artf.fixer.utility.ResultRate
+import com.artf.fixer.model.ResultRate
 import com.artf.fixer.utility.getDateFormat
 import java.util.Date
 

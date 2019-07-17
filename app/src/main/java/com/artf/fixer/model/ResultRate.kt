@@ -1,4 +1,4 @@
-package com.artf.fixer.utility
+package com.artf.fixer.model
 
 import android.view.View
 import com.artf.fixer.domain.Rate

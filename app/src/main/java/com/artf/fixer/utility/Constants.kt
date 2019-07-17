@@ -5,6 +5,7 @@ import com.artf.fixer.BuildConfig
 class Constants {
 
     companion object {
+        const val SCROLL_DIRECTION_UP = -1
         const val RECYCLER_VIEW_STATE_ID = "recyclerViewStateId"
         const val BACKDROP_STATE_ID = "backdropStateId"
         const val INTENT_LIST_ITEM_ID = "listItem"

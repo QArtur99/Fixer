@@ -11,7 +11,7 @@ import com.artf.fixer.databinding.RowCurrencyBinding
 import com.artf.fixer.databinding.RowNetworkStateBinding
 import com.artf.fixer.domain.Rate
 import com.artf.fixer.repository.NetworkState
-import com.artf.fixer.utility.ResultRate
+import com.artf.fixer.model.ResultRate
 
 class ListViewPagingAdapter(
     private val clickListener: OnClickListener,
