@@ -101,9 +101,11 @@ class ListViewFragment : Fragment() {
         binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 if (recyclerView.canScrollVertically(SCROLL_DIRECTION_UP)) {
-                    binding.divider.elevation = 8f
+                    binding.headerView.elevation = 8f
+                    binding.divider.visibility = View.GONE
                 } else {
-                    binding.divider.elevation = 0f
+                    binding.headerView.elevation = 0f
+                    binding.divider.visibility = View.VISIBLE
                 }
                 super.onScrolled(recyclerView, dx, dy)
             }

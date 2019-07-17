@@ -24,6 +24,8 @@
 
 
             <LinearLayout android:id="@+id/headerView"
+                          android:clipToPadding="false"
+                          android:elevation="4dp"
                           android:layout_width="match_parent"
                           android:layout_height="?attr/actionBarSize"
                           android:theme="@style/ActionBarSize"
@@ -62,10 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_below="@+id/headerView"
-                android:outlineProvider="bounds"
-                android:elevation="2dp"
-                android:background="?android:attr/listDivider"
-            />
+                android:background="?android:attr/listDivider"/>
 
             <LinearLayout android:id="@+id/row"
                           android:layout_width="match_parent"
