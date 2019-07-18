@@ -8,6 +8,8 @@ import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -21,6 +23,7 @@ import com.artf.fixer.repository.Status
 import com.artf.fixer.utility.Constants.Companion.INTENT_LIST_ITEM_ID
 import com.artf.fixer.utility.Constants.Companion.RECYCLER_VIEW_STATE_ID
 import com.artf.fixer.utility.Constants.Companion.SCROLL_DIRECTION_UP
+import com.artf.fixer.utility.Constants.Companion.TRANSITION_TO_DETAIL
 import com.artf.fixer.utility.ServiceLocator
 import com.artf.fixer.utility.convertToString
 
@@ -56,10 +59,16 @@ class ListViewFragment : Fragment() {
         )
 
         listViewViewModel.listItem.observe(viewLifecycleOwner, Observer {
-            it?.let { (_, listItem) ->
+            it?.let { (view, listItem) ->
                 val intent = Intent(activity, DetailActivity::class.java)
                 intent.putExtra(INTENT_LIST_ITEM_ID, convertToString(listItem))
-                activity!!.startActivity(intent)
+
+                val activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    this.activity!!,
+                    Pair<View, String>(view, TRANSITION_TO_DETAIL)
+                )
+
+                activity!!.startActivity(intent, activityOptions.toBundle())
                 listViewViewModel.onRecyclerItemClick(null)
             }
         })
