@@ -50,7 +50,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    fun onViewCreated() {
+    private fun onViewCreated() {
         val toolBarSize = binding.toolbar.height
         val frontLayoutSize = binding.frontLayout.height
 
