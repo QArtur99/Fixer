@@ -13,30 +13,24 @@ import androidx.core.util.Pair
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.artf.fixer.DetailActivity
 import com.artf.fixer.R
 import com.artf.fixer.databinding.FragmentListViewBinding
+import com.artf.fixer.extension.getVm
 import com.artf.fixer.repository.NetworkState
 import com.artf.fixer.repository.Status
 import com.artf.fixer.utility.Constants.Companion.INTENT_LIST_ITEM_ID
 import com.artf.fixer.utility.Constants.Companion.RECYCLER_VIEW_STATE_ID
 import com.artf.fixer.utility.Constants.Companion.SCROLL_DIRECTION_UP
 import com.artf.fixer.utility.Constants.Companion.TRANSITION_TO_DETAIL
-import com.artf.fixer.utility.ServiceLocator
 import com.artf.fixer.utility.convertToString
 
 class ListViewFragment : Fragment() {
 
-    private val listViewViewModel: ListViewViewModel by lazy {
-        val application = requireNotNull(this.activity).application
-        val repository = ServiceLocator.instance(application).getRepository()
-        val viewModelFactory = ListViewViewModelFactory(repository)
-        ViewModelProviders.of(this.activity!!, viewModelFactory).get(ListViewViewModel::class.java)
-    }
-
+    private val listViewViewModel by lazy { getVm<ListViewViewModel>() }
     private lateinit var binding: FragmentListViewBinding
+
     private var adapterItemCount: Int = 0
     private var savedInstanceState: Bundle? = null
 
@@ -105,7 +99,6 @@ class ListViewFragment : Fragment() {
         binding.swipeRefresh.setOnRefreshListener {
             listViewViewModel.refresh()
         }
-
 
         binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {

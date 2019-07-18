@@ -6,17 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import com.artf.fixer.R
 import com.artf.fixer.databinding.FragmentDetailViewBinding
+import com.artf.fixer.extension.getVm
 
 class DetailViewFragment : Fragment() {
 
-    private val detailViewViewModel: DetailViewViewModel by lazy {
-        val viewModelFactory = DetailViewViewModelFactory()
-        ViewModelProviders.of(this.activity!!, viewModelFactory).get(DetailViewViewModel::class.java)
-    }
-
+    private val detailViewViewModel by lazy { getVm<DetailViewViewModel>() }
     private lateinit var binding: FragmentDetailViewBinding
 
     override fun onCreateView(

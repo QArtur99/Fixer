@@ -4,33 +4,25 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.artf.fixer.databinding.ActivityMainBinding
+import com.artf.fixer.extension.getVm
 import com.artf.fixer.listView.ListViewViewModel
-import com.artf.fixer.listView.ListViewViewModelFactory
 import com.artf.fixer.utility.Constants
-import com.artf.fixer.utility.ServiceLocator
 import com.artf.fixer.utility.getDateFormat
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.Calendar
 import java.util.Date
 
 class MainActivity : AppCompatActivity() {
 
-    private val motionLayout by lazy { findViewById<MotionLayout>(R.id.motion_container) }
+    private val listViewViewModel by lazy { getVm<ListViewViewModel>() }
+    private lateinit var binding: ActivityMainBinding
+
+    private val motionLayout by lazy { motionContainer }
     private val calendar by lazy { Calendar.getInstance() }
     private var isMenuExpended: Boolean = false
-
-    private val listViewViewModel: ListViewViewModel by lazy {
-        val application = requireNotNull(this).application
-        val repository = ServiceLocator.instance(application).getRepository()
-        val viewModelFactory = ListViewViewModelFactory(repository)
-        ViewModelProviders.of(this, viewModelFactory).get(ListViewViewModel::class.java)
-    }
-
-    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

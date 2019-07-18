@@ -9,10 +9,9 @@ import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
 import androidx.databinding.DataBindingUtil
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
-import androidx.lifecycle.ViewModelProviders
 import com.artf.fixer.databinding.ActivityDetailBinding
 import com.artf.fixer.detailView.DetailViewViewModel
-import com.artf.fixer.detailView.DetailViewViewModelFactory
+import com.artf.fixer.extension.getVm
 import com.artf.fixer.utility.Constants.Companion.INTENT_LIST_ITEM_ID
 import com.artf.fixer.utility.Constants.Companion.TRANSITION_TO_DETAIL
 import com.artf.fixer.utility.convertFromString
@@ -21,12 +20,9 @@ import kotlinx.android.synthetic.main.fragment_detail_view.*
 
 class DetailActivity : AppCompatActivity() {
 
-    private val detailViewViewModel: DetailViewViewModel by lazy {
-        val viewModelFactory = DetailViewViewModelFactory()
-        ViewModelProviders.of(this, viewModelFactory).get(DetailViewViewModel::class.java)
-    }
-
+    private val detailViewViewModel by lazy { getVm<DetailViewViewModel>() }
     private lateinit var binding: ActivityDetailBinding
+
     private var savedInstanceState: Bundle? = null
     private var isBackPressAvailable: Boolean = true
 
@@ -112,7 +108,7 @@ class DetailActivity : AppCompatActivity() {
             val objectAnimator1 =
                 setObjectTranslation(binding.toolbar, "translationY", 0f, -toolBarSize.toFloat(), 600, 0)
             val objectAnimator2 =
-                setObjectTranslation(binding.frontLayout, "translationY", 0f, frontLayoutSize.toFloat(), 600 , 0)
+                setObjectTranslation(binding.frontLayout, "translationY", 0f, frontLayoutSize.toFloat(), 600, 0)
 
             objectAnimator2.doOnEnd {
                 super.onBackPressed()

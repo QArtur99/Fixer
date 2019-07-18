@@ -9,7 +9,7 @@ import com.artf.fixer.repository.NetworkState
 
 @BindingAdapter("listData")
 fun bindMoviesRecyclerView(recyclerView: RecyclerView, data: PagedList<Rate>?) {
-    data?.let{
+    data?.let {
         val adapter = recyclerView.adapter as ListViewPagingAdapter
         adapter.submitList(data)
         adapter.notifyDataSetChanged()

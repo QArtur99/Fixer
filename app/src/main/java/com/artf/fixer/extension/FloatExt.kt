@@ -1,4 +1,4 @@
-package com.artf.fixer.utility
+package com.artf.fixer.extension
 
 import android.content.res.Resources
 
