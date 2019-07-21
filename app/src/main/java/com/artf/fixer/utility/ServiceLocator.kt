@@ -9,10 +9,6 @@ import com.artf.fixer.repository.Repository
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
-/**
- * Super simplified service locator implementation to allow us to replace default implementations
- * for testing.
- */
 interface ServiceLocator {
     companion object {
         @Volatile
@@ -29,9 +25,6 @@ interface ServiceLocator {
             }
         }
 
-        /**
-         * Allows tests to replace the default implementations.
-         */
         @VisibleForTesting
         fun swap(locator: ServiceLocator) {
             instance = locator
@@ -47,15 +40,11 @@ interface ServiceLocator {
     fun getFixerApi(): FixerApi
 }
 
-/**
- * default implementation of ServiceLocator that uses production endpoints.
- */
 open class DefaultServiceLocator(val app: Application) : ServiceLocator {
-    // thread pool used for disk access
+
     @Suppress("PrivatePropertyName")
     private val DISK_IO = Executors.newSingleThreadExecutor()
 
-    // thread pool used for network requests
     @Suppress("PrivatePropertyName")
     private val NETWORK_IO = Executors.newFixedThreadPool(5)
 
