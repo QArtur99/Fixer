@@ -17,8 +17,10 @@ The application fetches movie data using https://fixer.io.
 * [ktlint](https://ktlint.github.io/) - Enforce Kotlin coding styles.
 
 ### Screenshots
-![image](https://user-images.githubusercontent.com/25232443/60764654-18008c00-a08e-11e9-8d7e-f62b0d6cffea.gif)
-![image](https://user-images.githubusercontent.com/25232443/60773071-0657cc80-a100-11e9-8744-62a8962ffffa.gif)
+<p float="left">
+<img alt='Gif 1' src='https://user-images.githubusercontent.com/25232443/77852027-af89aa00-71dc-11ea-8cfd-94a44536f46d.gif' width="auto" height="480"/>
+<img alt='Gif 2' src='https://user-images.githubusercontent.com/25232443/77852036-b6182180-71dc-11ea-9b9c-db5d614f99a5.gif' width="480" height="auto"/>
+</p>
 
 ### How to run the project in development mode
 * Clone or download repository as a zip file.
