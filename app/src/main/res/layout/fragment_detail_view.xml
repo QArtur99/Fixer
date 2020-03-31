@@ -5,10 +5,10 @@
     <data>
         <variable
             name="detailViewViewModel"
-            type="com.artf.fixer.detailView.DetailViewViewModel"/>
+            type="com.artf.fixer.ui.detailView.DetailViewViewModel"/>
     </data>
 
-    <com.artf.fixer.utility.CustomScrollView
+    <com.artf.fixer.ui.CustomScrollView
         android:id="@+id/scrollview"
         android:background="@drawable/bg_top_radius"
         android:layout_width="match_parent"
@@ -104,5 +104,5 @@
             </LinearLayout>
 
         </RelativeLayout>
-    </com.artf.fixer.utility.CustomScrollView>
+    </com.artf.fixer.ui.CustomScrollView>
 </layout>

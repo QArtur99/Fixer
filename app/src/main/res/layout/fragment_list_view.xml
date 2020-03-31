@@ -6,10 +6,10 @@
     <data>
         <variable
             name="listViewViewModel"
-            type="com.artf.fixer.listView.ListViewViewModel"/>
+            type="com.artf.fixer.ui.listView.ListViewViewModel"/>
     </data>
 
-    <com.artf.fixer.utility.CustomScrollView
+    <com.artf.fixer.ui.CustomScrollView
         android:id="@+id/scrollview"
         android:background="@drawable/bg_top_radius"
         android:layout_width="match_parent"
@@ -140,5 +140,5 @@
                     android:textColor="#A2AAB0"/>
             </RelativeLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.artf.fixer.utility.CustomScrollView>
+    </com.artf.fixer.ui.CustomScrollView>
 </layout>

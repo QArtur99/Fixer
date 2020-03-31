@@ -4,11 +4,11 @@
     <data>
         <variable
                 name="networkState"
-                type="com.artf.fixer.repository.NetworkState"/>
+                type="com.artf.fixer.data.repository.NetworkState"/>
 
         <variable
                 name="clickListener"
-                type="com.artf.fixer.listView.ListViewPagingAdapter.OnNetworkStateClickListener"/>
+                type="com.artf.fixer.ui.listView.ListViewPagingAdapter.OnNetworkStateClickListener"/>
 
     </data>
     <LinearLayout

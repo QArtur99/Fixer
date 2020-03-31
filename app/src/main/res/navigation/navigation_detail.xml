@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragment_grid_view"
-        android:name="com.artf.fixer.detailView.DetailViewFragment"
+        android:name="com.artf.fixer.ui.detailView.DetailViewFragment"
         android:label="GridViewFragment"
     >
     </fragment>

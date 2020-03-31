@@ -5,11 +5,11 @@
     <data>
         <variable
             name="rate"
-            type="com.artf.fixer.domain.Rate"/>
+            type="com.artf.fixer.data.model.Rate"/>
 
         <variable
             name="clickListener"
-            type="com.artf.fixer.listView.ListViewPagingAdapter.OnClickListener"/>
+            type="com.artf.fixer.ui.listView.ListViewPagingAdapter.OnClickListener"/>
     </data>
 
     <androidx.cardview.widget.CardView
